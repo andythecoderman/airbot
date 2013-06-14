@@ -1,5 +1,6 @@
 {
-    "dependencies" : {
-        "ar-drone": "*"
-    }
+  "dependencies": {
+    "ar-drone": "*",
+    "log4node": "~0.1.2"
+  }
 }
