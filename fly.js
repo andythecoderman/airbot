@@ -9,16 +9,26 @@
 var arDrone = require('ar-drone');
 var client = arDrone.createClient();
 
+//client.calibrate(0);
 client.takeoff();
 
 client
     .after(5000, function() {
+        this.up(0.5);
+    })
+    .after(2000, function() {
+        this.stop();
         this.clockwise(0.5);
     })
-    .after(3000, function() {
+    .after(5000, function() {
+        this.counterClockwise(0.5);
         //this.animate('flipLeft', 15);
     })
-    .after(1000, function() {
+    .after(5000, function(){
+        this.animateLeds('snakeGreenRed', 5, 5);
+        this.animate('yawDance', 5);
+    })
+    .after(5000, function() {
         this.stop();
         this.land();
     });
